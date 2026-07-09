@@ -1,11 +1,130 @@
-/* 
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+/* pone los dos semaforos lado a lado */
+.semaforos-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 20px;
+}
 
-*/
+/* ===== Semaforo (20% mas pequeño: cada medida x 0.8) ===== */
+
+.caja {
+  background-color: black;
+  width: 96px;          /* antes 120px */
+  padding: 8px;          /* antes 10px */
+  border-radius: 24px;    /* antes 30px */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.light {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+/* .light se achica SOLO dentro de Semaforo, para no afectar a SemaforoColgante */
+.semaforo-wrapper .light {
+  width: 64px;    /* antes 80px */
+  height: 64px;
+  margin: 4px;     /* antes 5px */
+}
+
+.red { background-color: darkred; }
+.yellow { background-color: darkgoldenrod; }
+.green { background-color: darkgreen; }
+
+.on {
+  filter: brightness(2);
+  box-shadow: 0 0 40px white;
+}
+
+.semaforo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.palo {
+  width: 32px;      /* antes 40px */
+  height: 176px;     /* antes 220px */
+  background-color: black;
+}
+
+.palo-container {
+  position: relative;
+}
+
+.palo-container button {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: whitesmoke;
+  border-radius: 30%;
+}
+
+.purple { background-color: indigo; }
+.purple.on { box-shadow: 0 0 40px white; }
+
+/* ===== SemaforoColgante (tamaño normal, sin cambios) ===== */
+
+.semaforoEmboltorio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.colgador {
+  width: 6px;
+  height: 60px;
+  background-color: black;
+}
+
+.semaforo {
+  background-color: black;
+  width: 110px;
+  padding: 12px;
+  border-radius: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.lila { background-color: #b19cd9; }
+.pink { background-color: hotpink; }
+.blue { background-color: dodgerblue; }
+.white {
+  background-color: white;
+}
+
+/* estilo general para TODOS los botones */
+button {
+  background-color: #18a87a;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: hsl(165, 87%, 52%);
+}
